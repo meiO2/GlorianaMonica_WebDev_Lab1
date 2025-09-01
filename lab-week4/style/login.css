@@ -1,0 +1,173 @@
+.back{
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family:"Segoe UI", Tahoma, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.login-card{
+    width: 350px;
+    height: 680px;
+    border-radius: 20px;
+    background-color: rgb(253, 246, 246);
+    display: flex;
+    align-items: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.icon{
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    width: 70px;
+    height: 70px;
+    display: flex;
+    font-size: 2rem;
+    color: black;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin-top: 15px;
+}
+
+.login-card h5{
+    padding-top: 23px;
+}
+
+.login-card p{
+    color:rgb(201, 201, 201);
+    font-size: 14px;
+}
+
+.formsize{
+    height: 40px;
+    width: 280px;
+    font-size: 13px;
+    color: rgb(226, 224, 224);
+    border-radius: 10px;
+}
+
+.label{
+    font-size: 13px;
+    color:rgb(46, 46, 46);
+    font-weight: bold;
+}
+
+.forgot-pass{
+    text-decoration: none;
+    color: #667eea;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.masuk{
+    font-weight: bold;
+    height: 45px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 10px;
+}
+
+.or{
+    display: flex;
+    justify-content: row;
+    margin-top: 30px;
+    color: rgb(158, 158, 158);
+    font-size: 13px;
+    align-items: center;
+}
+
+.goog button{
+    background-color: white;
+    border-color: rgb(194, 194, 194);
+    border-radius: 10px;
+    font-size: 13px;
+    color: red;
+    font-weight: bold;
+    height: 40px;
+}
+
+.rem{
+    font-size: 13px;
+}
+
+.goog img{
+    margin-right: 5px;
+    width: 15px; 
+    height: 15px;
+}
+
+.no-acc{
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.regis{
+    margin-left: 5px;
+}
+
+@media (max-width: 1300px){
+    .login-card{
+        width: 330px;
+        height: 640px;
+    }
+    .icon{
+        width: 60px;
+        height: 60px;
+        font-size: 30px;
+    }
+    .login-card h5{
+        font-size: 18px;
+        padding-top: 20px;
+    }
+    .login-card p{
+        font-size: 13px;
+    }
+    .formsize{
+        height: 40px;
+        width: 260px;
+        font-size: 12px;
+        border-radius: 12px;
+    }
+
+    .label{
+        font-size: 12px;
+    }
+
+    .forgot-pass{
+        font-size: 12px;
+    }
+
+    .rem{
+        font-size: 12px;
+    }
+    .masuk{
+        height: 35px;
+        border-radius: 10px;
+        font-size: 15px;
+    }
+
+    .or{
+        margin-top: 25px;
+        font-size: 12px;
+    }
+
+    .goog button{
+        border-radius: 10px;
+        font-size: 13px;
+        height: 35px;
+    }
+
+    .goog img{
+        margin-right: 5px;
+        width: 15px; 
+        height: 15px;
+    }
+
+    .no-acc{
+        margin-top: 25px;
+        font-size: 15px;
+    }
+}
