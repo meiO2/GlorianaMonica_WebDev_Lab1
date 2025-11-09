@@ -98,6 +98,17 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
 # Grade Serializer
 # ---------------------------
 class GradeSerializer(serializers.ModelSerializer):
+    student = serializers.SlugRelatedField(
+        slug_field='username', 
+        queryset=User.objects.filter(role='student')
+    )
+    instructor = serializers.SlugRelatedField(
+        slug_field='username',
+        queryset=User.objects.filter(role='instructor'),
+        required=False,
+        allow_null=True
+    )
+
     student_name = serializers.CharField(source='student.full_name', read_only=True)
     student_email = serializers.EmailField(source='student.email', read_only=True)
     instructor_name = serializers.CharField(source='instructor.full_name', read_only=True)
@@ -115,6 +126,5 @@ class GradeSerializer(serializers.ModelSerializer):
             'instructor_email',
             'course_name',
             'score',
-            'created_at',
         ]
-        read_only_fields = ['created_at', 'student_name', 'student_email', 'instructor_name', 'instructor_email']
+

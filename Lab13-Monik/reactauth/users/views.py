@@ -26,7 +26,7 @@ class GradeListView(generics.ListCreateAPIView):
     def get_queryset(self):
         user = self.request.user
         if user.role == 'instructor':
-            return Grade.objects.all()
+            return Grade.objects.filter(instructor=user)
         elif user.role == 'student':
             return Grade.objects.filter(student=user)
         return Grade.objects.none()
@@ -35,4 +35,4 @@ class GradeListView(generics.ListCreateAPIView):
         user = self.request.user
         if user.role != 'instructor':
             raise PermissionDenied("Only instructors can add grades.")
-        serializer.save()
+        serializer.save(instructor=user)

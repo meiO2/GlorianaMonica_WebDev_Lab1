@@ -1,10 +1,22 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import api from "../services/authservices";
 
 export default function DashboardStudent() {
   const [grades, setGrades] = useState([]);
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
+  // 🔒 Verifikasi role akun student
+  useEffect(() => {
+    const role = localStorage.getItem("role");
+    if (role !== "student") {
+      alert("Akses ditolak. Halaman ini hanya untuk mahasiswa.");
+      navigate("/"); // arahkan ke halaman utama atau login
+    }
+  }, [navigate]);
+
+  // 📊 Ambil data nilai saat halaman dibuka
   useEffect(() => {
     const fetchGrades = async () => {
       try {
@@ -33,21 +45,21 @@ export default function DashboardStudent() {
   return (
     <div className="p-6">
       <h2 className="text-xl font-semibold mb-4">
-        Welcome, {localStorage.getItem("full_name")}
+        Dashboard Mahasiswa - {localStorage.getItem("full_name")}
       </h2>
 
-      <h3 className="text-lg font-medium mb-2">Your Grades</h3>
+      <h3 className="text-lg font-medium mb-2">Nilai Anda</h3>
 
       {error ? (
         <p className="text-red-500">{error}</p>
       ) : grades.length === 0 ? (
-        <p className="text-gray-600">No grades available.</p>
+        <p className="text-gray-600">Belum ada nilai yang tersedia.</p>
       ) : (
         <table className="table-auto border-collapse border border-gray-300 w-full">
           <thead>
             <tr className="bg-gray-100">
-              <th className="border p-2">Course</th>
-              <th className="border p-2">Score</th>
+              <th className="border p-2">Mata Kuliah</th>
+              <th className="border p-2">Nilai</th>
             </tr>
           </thead>
           <tbody>
